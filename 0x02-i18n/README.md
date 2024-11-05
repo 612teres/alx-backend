@@ -3,38 +3,38 @@
 
 Back-end
 
--   By Fabian Teres
+- By Fabian Teres
 
 Resources
 ---------
 
 **Read or watch:**
 
--   [Flask-Babel](https://alx-intranet.hbtn.io/rltoken/fBpGjDt2BFuBFiz-jwublQ "Flask-Babel")
--   [Flask i18n tutorial](https://alx-intranet.hbtn.io/rltoken/RtGz7pI7TKnYqrMMG9rWMg "Flask i18n tutorial")
--   [pytz](https://alx-intranet.hbtn.io/rltoken/mzgaTYJUvmamm7kH7RtEcQ "pytz")
+- [Flask-Babel](https://alx-intranet.hbtn.io/rltoken/fBpGjDt2BFuBFiz-jwublQ "Flask-Babel")
+- [Flask i18n tutorial](https://alx-intranet.hbtn.io/rltoken/RtGz7pI7TKnYqrMMG9rWMg "Flask i18n tutorial")
+- [pytz](https://alx-intranet.hbtn.io/rltoken/mzgaTYJUvmamm7kH7RtEcQ "pytz")
 
 Learning Objectives
 -------------------
 
--   Learn how to parametrize Flask templates to display different languages
--   Learn how to infer the correct locale based on URL parameters, user settings or request headers
--   Learn how to localize timestamps
+- Learn how to parametrize Flask templates to display different languages
+- Learn how to infer the correct locale based on URL parameters, user settings or request headers
+- Learn how to localize timestamps
 
 Requirements
 ------------
 
--   All your files will be interpreted/compiled on Ubuntu 18.04 LTS using python3 (version 3.7)
--   All your files should end with a new line
--   A `README.md` file, at the root of the folder of the project, is mandatory
--   Your code should use the pycodestyle style (version 2.5)
--   The first line of all your files should be exactly `#!/usr/bin/env python3`
--   All your `*.py` files should be executable
--   All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
--   All your classes should have a documentation (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
--   All your functions and methods should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
--   A documentation is not a simple word, it's a real sentence explaining what's the purpose of the module, class or method (the length of it will be verified)
--   All your functions and coroutines must be type-annotated.
+- All your files will be interpreted/compiled on Ubuntu 18.04 LTS using python3 (version 3.7)
+- All your files should end with a new line
+- A `README.md` file, at the root of the folder of the project, is mandatory
+- Your code should use the pycodestyle style (version 2.5)
+- The first line of all your files should be exactly `#!/usr/bin/env python3`
+- All your `*.py` files should be executable
+- All your modules should have a documentation (`python3 -c 'print(__import__("my_module").__doc__)'`)
+- All your classes should have a documentation (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
+- All your functions and methods should have a documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+- A documentation is not a simple word, it's a real sentence explaining what's the purpose of the module, class or method (the length of it will be verified)
+- All your functions and coroutines must be type-annotated.
 
 Tasks
 -----
@@ -47,9 +47,11 @@ First you will setup a basic Flask app in `0-app.py`. Create a single `/` route 
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `0-app.py, templates/0-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `0-app.py, templates/0-index.html`
+
+ Done? Help Check your code
 
 ### 1\. Basic Babel setup
 
@@ -58,7 +60,7 @@ mandatory
 Install the Babel Flask extension:
 
 ```
-$ pip3 install flask_babel
+pip3 install flask_babel
 
 ```
 
@@ -72,9 +74,11 @@ Use that class as config for your Flask app.
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `1-app.py, templates/1-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `1-app.py, templates/1-index.html`
+
+ Done? Help Check your code Get a sandbox
 
 ### 2\. Get locale from request
 
@@ -84,9 +88,11 @@ Create a `get_locale` function with the `babel.localeselector` decorator. Use `r
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `2-app.py, templates/2-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `2-app.py, templates/2-index.html`
+
+ Done? Help Check your code
 
 ### 3\. Parametrize templates
 
@@ -106,15 +112,15 @@ extensions=jinja2.ext.autoescape,jinja2.ext.with_
 Then initialize your translations with
 
 ```
-$ pybabel extract -F babel.cfg -o messages.pot .
+pybabel extract -F babel.cfg -o messages.pot .
 
 ```
 
 and your two dictionaries with
 
 ```
-$ pybabel init -i messages.pot -d translations -l en
-$ pybabel init -i messages.pot -d translations -l fr
+pybabel init -i messages.pot -d translations -l en
+pybabel init -i messages.pot -d translations -l fr
 
 ```
 
@@ -127,7 +133,7 @@ Then edit files `translations/[en|fr]/LC_MESSAGES/messages.po` to provide the co
 Then compile your dictionaries with
 
 ```
-$ pybabel compile -d translations
+pybabel compile -d translations
 
 ```
 
@@ -135,9 +141,11 @@ Reload the home page of your app and make sure that the correct messages show up
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `3-app.py, babel.cfg, templates/3-index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po, translations/en/LC_MESSAGES/messages.mo, translations/fr/LC_MESSAGES/messages.mo`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `3-app.py, babel.cfg, templates/3-index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po, translations/en/LC_MESSAGES/messages.mo, translations/fr/LC_MESSAGES/messages.mo`
+
+ Done? Help Check your code Get a sandbox
 
 ### 4\. Force locale with URL parameter
 
@@ -149,13 +157,15 @@ In your `get_locale` function, detect if the incoming request contains `locale` 
 
 Now you should be able to test different translations by visiting `http://127.0.0.1:5000?locale=[fr|en]`.
 
-**Visiting `http://127.0.0.1:5000/?locale=fr` should display this level 1 heading:** ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/f958f4a1529b535027ce.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5aa0a6b55357f9fc1b6ce6417c6c7521164806eb60fe1f2387750391e457ecf7)
+**Visiting `http://127.0.0.1:5000/?locale=fr` should display this level 1 heading:** ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/f958f4a1529b535027ce.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=9b67dd8c671452469476255ea5d70325bb8a073061b5b0b924973219f33823f6)
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `4-app.py, templates/4-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `4-app.py, templates/4-index.html`
+
+ Done? Help Check your code
 
 ### 5\. Mock logging in
 
@@ -187,15 +197,17 @@ In your HTML template, if a user is logged in, in a paragraph tag, display a wel
 
 **Visiting `http://127.0.0.1:5000/` in your browser should display this:**
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/2c5b2c8190f88c6b4668.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8afe1587bc8e37f3aa2ac338cd2d77abce885b663224e53e82ae6a62d527b737)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/2c5b2c8190f88c6b4668.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=58edc296f4010cf9bfbfad1a6669eeaa6a98b680439961e01f247fa3ac924c19)
 
-**Visiting `http://127.0.0.1:5000/?login_as=2` in your browser should display this:** ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/277f24308c856a09908c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f3a008e55576e844c32fc85b1b98cc10dfcb51de64298a050c6fe9af32811057)
+**Visiting `http://127.0.0.1:5000/?login_as=2` in your browser should display this:** ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/277f24308c856a09908c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bb18ed9baad90f89a6fa63543b018f6d809d4373c41c1577a663307f470e6076)
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `5-app.py, templates/5-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `5-app.py, templates/5-index.html`
+
+ Done? Help Check your code
 
 ### 6\. Use user locale
 
@@ -205,20 +217,22 @@ Change your `get_locale` function to use a user's preferred local if it is suppo
 
 The order of priority should be
 
-1.  Locale from URL parameters
-2.  Locale from user settings
-3.  Locale from request header
-4.  Default locale
+1. Locale from URL parameters
+2. Locale from user settings
+3. Locale from request header
+4. Default locale
 
 Test by logging in as different users
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/9941b480b0b9d87dc5de.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bd7b3a903ce37206e62a34fd7ace57387f840401d8d4fe245292253e1a9c639c)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/9941b480b0b9d87dc5de.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e29f75603ea97df0271235991a3063e4f64f6cfee5cebcec00042b8d26caf94e)
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `6-app.py, templates/6-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `6-app.py, templates/6-index.html`
+
+ Done? Help Check your code
 
 ### 7\. Infer appropriate time zone
 
@@ -228,21 +242,23 @@ Define a `get_timezone` function and use the `babel.timezoneselector` decorator.
 
 The logic should be the same as `get_locale`:
 
-1.  Find `timezone` parameter in URL parameters
-2.  Find time zone from user settings
-3.  Default to UTC
+1. Find `timezone` parameter in URL parameters
+2. Find time zone from user settings
+3. Default to UTC
 
 Before returning a URL-provided or user time zone, you must validate that it is a valid time zone. To that, use `pytz.timezone` and catch the `pytz.exceptions.UnknownTimeZoneError` exception.
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `7-app.py, templates/7-index.html`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `7-app.py, templates/7-index.html`
+
+ Done? Help
 
 ### 8\. Display the current time
 
-#advanced
+# advanced
 
 Based on the inferred time zone, display the current time on the home page in the default format. For example:
 
@@ -255,14 +271,14 @@ Use the following translations
 
 **Displaying the time in French looks like this:**
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/bba4805d6dca0a46a0f6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bd0f0b6c0b71e90c51e0d8edc1c9625617430dc7cfac50c2d1394fef9d458ede)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/bba4805d6dca0a46a0f6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a2be8af37e110fd52f4afe7fef1fdaf532c782776d808ebced5b3e9cdec5ea87)
 
 **Displaying the time in English looks like this:**
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/54f3be802024dbcf06f4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T102409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3470663026acd62adf1cc21424b74a8a2fe2f55dcec0c796b23a323b9a8ee6fa)
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/3/54f3be802024dbcf06f4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220719T232414Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=08f8c39802b3d3e9a02e3e1988a83d33c4951461bbd2a60e67825218007b2133)
 
 **Repo:**
 
--   GitHub repository: `alx-backend`
--   Directory: `0x02-i18n`
--   File: `app.py, templates/index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po`
+- GitHub repository: `alx-backend`
+- Directory: `0x02-i18n`
+- File: `app.py, templates/index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po`
